@@ -7,6 +7,7 @@ function setMode(mode) {
   $("#mergely").mergely("cm", "rhs").setOption("mode", mode);
 }
 function setFileNames(names) {
+  $("#copyLeft,#copyRight").show();
   $("#fileLeft").text(names.left);
   $("#fileRight").text(names.right);
 }
@@ -19,6 +20,12 @@ $(document).on("shiny:connected", function() {
   });
 });
 $(document).ready(function() {
+  $("#copyLeft").on("click", function() {
+    navigator.clipboard.writeText($("#mergely").mergely("get", "lhs"));
+  });
+  $("#copyRight").on("click", function() {
+    navigator.clipboard.writeText($("#mergely").mergely("get", "rhs"));
+  });
   $("#mergely").mergely({
     width: "auto",
     height: "fit-content",

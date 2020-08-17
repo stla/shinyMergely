@@ -7,6 +7,16 @@
 #fileLeft, #fileRight {
   font-size: 20px;
   color: lightgray;
+  float: left;
+}
+#copyLeft, #copyRight {
+  float: right;
+  display: none;
+  padding: 5px 12px;
+  border-radius: 5px;
+}
+#copyLeft:focus, #copyRight:focus {
+  outline: 0;
 }
 .well {
   background-color: #485461;
