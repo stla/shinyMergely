@@ -18,6 +18,7 @@ fluidPage(
     tags$script(src = "codemirror/mode/python/python.js"),
     tags$script(src = "codemirror/mode/r/r.js"),
     tags$script(src = "codemirror/mode/sql/sql.js"),
+    tags$script(src = "codemirror/mode/stex/stex.js"),
     tags$script(src = "codemirror/mode/xml/xml.js"),
     tags$script(type="text/javascript", src="mergely/package/lib/mergely.js"),
     tags$link(rel="stylesheet", media="all", href="mergely/package/lib/mergely.css"),

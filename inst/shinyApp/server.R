@@ -31,11 +31,13 @@ function(input, output, session){
         md = "markdown",
         py = "python",
         r = "r",
+        rmd = "markdown",
         sql = "sql",
+        svg = "xml",
+        tex = "stex",
         xml = "xml"
       )
       if(is.null(mode)) mode <- "text/plain"
-      print(mode)
       session$sendCustomMessage("setMode", mode)
     }
   })
