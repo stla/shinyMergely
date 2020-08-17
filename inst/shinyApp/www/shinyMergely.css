@@ -14,9 +14,25 @@
   display: none;
   padding: 5px 12px;
   border-radius: 5px;
+  background-color: darkmagenta;
+  background-image: linear-gradient(20deg, darkmagenta 0%, #e61d8c 90%);
+  border-width: 2px;
+  border-color: yellow;
 }
 #copyLeft:focus, #copyRight:focus {
   outline: 0;
+  background-image: linear-gradient(200deg, darkmagenta 0%, #e61d8c 90%);
+}
+#swap {
+  border-color: lightpink;
+  color: papayawhip;
+  padding: 8px 16px;
+}
+#swap:focus {
+  outline: 0;
+}
+#swap>i {
+  margin-right: 3px;
 }
 .well {
   background-color: #485461;

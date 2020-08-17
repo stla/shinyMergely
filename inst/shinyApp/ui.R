@@ -51,13 +51,13 @@ fluidPage(
           width = 6,
           style = "margin-left: -2px;",
           tags$p(id = "fileLeft"),
-          actionButton("copyLeft", "Copy", class = "btn-info")
+          actionButton("copyLeft", "Copy")
         ),
         column(
           width = 6,
           style = "margin-left: -4px;",
           tags$p(id = "fileRight"),
-          actionButton("copyRight", "Copy", class = "btn-info")
+          actionButton("copyRight", "Copy")
         )
       ),
       conditionalPanel(
