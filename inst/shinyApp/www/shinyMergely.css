@@ -1,0 +1,61 @@
+.alert .glyphicon {
+  font-size: 30px;
+}
+.alert .header strong {
+  font-size: 25px;
+}
+#fileLeft, #fileRight {
+  font-size: 20px;
+  color: lightgray;
+}
+.well {
+  background-color: #485461;
+  background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
+  padding-bottom: 0;
+}
+.form-control[readonly] {
+  background-color: rgba(176, 196, 222, 0.5);
+  color: powderblue;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: powderblue !important;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: powderblue !important;
+}
+::-ms-input-placeholder { /* IE 10+ */
+  color: powderblue !important;
+}
+::-moz-placeholder { /* Firefox 18- */
+  color: powderblue !important;
+}
+.btn-file {
+  font-style: oblique;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 6px 12px;
+}
+.CodeMirror-vscrollbar::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+.CodeMirror-vscrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: transparent;
+}
+.CodeMirror-vscrollbar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #D62929;
+}
+.CodeMirror-vscrollbar:focus {
+  outline: 0;
+}
+.mergely.c.lhs, .mergely.c.rhs {
+  background-color: darkmagenta;
+}
+.mergely.ch.a.lhs, .mergely.ch.a.rhs {
+  background-color: royalblue;
+}
