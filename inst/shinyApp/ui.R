@@ -1,3 +1,5 @@
+#library(shinyjqui)
+
 fluidPage(
   theme = shinytheme("cyborg"),
   tags$head(
@@ -36,15 +38,16 @@ fluidPage(
       ),
       column(
         width = 2,
-        conditionalPanel(
-          "output.uploaded",
-          actionButton("swap", "Swap", class = "btn-lg",
+        #conditionalPanel(
+          #"output.uploaded",
+          actionButton("swap", "Swap", class = "btn-lg mainPanel",
                        icon = icon("transfer", lib = "glyphicon"))
-        )
+        #)
       )
     )
   ),
   fluidRow(
+    class = "mainPanel",
     column(
       width = 12,
       fluidRow(

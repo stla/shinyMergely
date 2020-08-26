@@ -1,3 +1,9 @@
+.CodeMirror {
+  height: 400px;
+}
+.mainPanel {
+  opacity: 0;
+}
 .alert .glyphicon {
   font-size: 30px;
 }

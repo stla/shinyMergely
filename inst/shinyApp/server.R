@@ -1,3 +1,5 @@
+# TODO: use uchardet
+
 function(input, output, session){
 
   uploaded <- reactiveVal(FALSE)
@@ -17,17 +19,19 @@ function(input, output, session){
       session$sendCustomMessage("mergely", list(lhs = lhs, rhs = rhs))
       fileNames <- input[["files"]][["name"]]
       files(fileNames)
-      session$sendCustomMessage("fileNames",
-                                list(left = fileNames[1L], right = fileNames[2L]))
+      session$sendCustomMessage(
+        "fileNames",
+        list(left = fileNames[1L], right = fileNames[2L])
+      )
       ext <- tools::file_ext(fileNames[1L])
       mode <- switch(
         tolower(ext),
         css = "css",
         hs = "haskell",
         html = "htmlmixed",
+        jl = "julia",
         js = "javascript",
         jsx = "jsx",
-        jl = "julia",
         md = "markdown",
         py = "python",
         r = "r",
@@ -45,8 +49,10 @@ function(input, output, session){
   observeEvent(input[["swap"]], {
     session$sendCustomMessage("swap", "x")
     fileNames <- files()
-    session$sendCustomMessage("fileNames",
-                              list(left = fileNames[2L], right = fileNames[1L]))
+    session$sendCustomMessage(
+      "fileNames",
+      list(left = fileNames[2L], right = fileNames[1L])
+    )
     files(fileNames[2L:1L])
   })
 

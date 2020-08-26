@@ -28,7 +28,7 @@ $(document).ready(function() {
   });
   $("#mergely").mergely({
     width: "auto",
-    height: "fit-content",
+    height: "400px",
     wrap_lines: true,
     cmsettings: {
       readOnly: false,
@@ -39,6 +39,7 @@ $(document).ready(function() {
   });
   document.getElementById("files").addEventListener("change", function() {
     if(document.getElementById("files").files.length === 2) {
+      $(".mainPanel").animate({opacity: 1}, 1500);
       return true;
     } else {
       $.alert("You have to upload <u>two</u> files", {
