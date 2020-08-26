@@ -1,20 +1,84 @@
-.CodeMirror {
-  height: 400px;
+.xcontainer {
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  margin: 0 .5em;
 }
+.diffs {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+.diffs .compare-wrapper {
+  flex: 1 1 auto;
+  position: relative;
+}
+.diffs .compare-wrapper #mergely {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/*.CodeMirror-sizer {
+  margin-left: calc(20%) !important;
+}
+.CodeMirror-linenumber {
+  width: fit-content !important;
+  margin-left: 5px !important;
+}
+.CodeMirror-lines {
+  border-left: 1px solid red;
+}*/
+
+#mergely-splash {
+  display: none;
+}
+
+.mergely-column {
+  width: calc(50% - 14px) !important;
+}
+.mergely-column .CodeMirror {
+  height: 60vh;
+}
+/*.mergely-margin {
+  height: 60vh;
+}*/
+.merge-button {
+  height: unset !important;
+  /* width: 2vw; */
+  border: none !important;
+  color: yellow !important;
+  font-weight: bold;
+  background-color: transparent !important;
+  /* margin-top: -1px !important; */
+  /* font-size: xx-large; */
+  transform: scale(2.15);
+  margin-left: -6px;
+}
+
 .mainPanel {
   opacity: 0;
 }
+
 .alert .glyphicon {
   font-size: 30px;
 }
 .alert .header strong {
   font-size: 25px;
 }
+
 #fileLeft, #fileRight {
   font-size: 20px;
   color: lightgray;
   float: left;
 }
+
+/*.col-sm-6 {
+  padding-right: 22px;
+}*/
+
 #copyLeft, #copyRight {
   float: right;
   display: none;
@@ -29,6 +93,10 @@
   outline: 0;
   background-image: linear-gradient(200deg, darkmagenta 0%, #e61d8c 90%);
 }
+/*#copyLeft {
+  margin-right: 2px;
+}*/
+
 #swap {
   border-color: lightpink;
   color: papayawhip;

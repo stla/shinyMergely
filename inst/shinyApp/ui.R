@@ -1,4 +1,5 @@
-#library(shinyjqui)
+library(shinyjqui)
+#shinyOptions(shiny.jquery.version = 1)
 
 fluidPage(
   theme = shinytheme("cyborg"),
@@ -26,6 +27,7 @@ fluidPage(
     tags$link(rel="stylesheet", media="all", href="mergely/package/lib/mergely.css"),
     tags$link(rel="stylesheet", href="shinyMergely.css"),
     tags$script(src = "shinyMergely.js")
+    #tags$script(src = "https://cdn.jsdelivr.net/watch-element-resize.js/latest/watch-element-resize.min.js")
   ),
   br(),
   wellPanel(
@@ -39,9 +41,9 @@ fluidPage(
       column(
         width = 2,
         #conditionalPanel(
-          #"output.uploaded",
-          actionButton("swap", "Swap", class = "btn-lg mainPanel",
-                       icon = icon("transfer", lib = "glyphicon"))
+        #"output.uploaded",
+        actionButton("swap", "Swap", class = "btn-lg mainPanel",
+                     icon = icon("transfer", lib = "glyphicon"))
         #)
       )
     )
@@ -53,21 +55,24 @@ fluidPage(
       fluidRow(
         column(
           width = 6,
-          style = "margin-left: -2px;",
+          #style = "margin-left: -2px;",
           tags$p(id = "fileLeft"),
           actionButton("copyLeft", "Copy")
         ),
         column(
           width = 6,
-          style = "margin-left: -4px;",
+#          style = "margin-left: -13px;",
           tags$p(id = "fileRight"),
           actionButton("copyRight", "Copy")
         )
       ),
-      conditionalPanel(
-        "output.uploaded",
-        tags$div(id = "mergely")
+      #conditionalPanel(
+      # "output.uploaded",
+      jqui_resizable(
+        tags$div(id="x",tags$div(id = "mergely")),
+        options = list(alsoResize = ".CodeMirror", handles = "s")
       )
+      #)
     )
   )
 )

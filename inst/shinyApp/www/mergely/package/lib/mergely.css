@@ -37,8 +37,8 @@
 .mergely.ch.a.rhs { background-color: #ddeeff; }
 .mergely.ch.d.lhs { background-color: #ffe9e9; text-decoration: line-through; color: red !important; }
 
-.mergely.current.start { border-top: 1px solid #000 !important; }
-.mergely.current.end { border-bottom: 1px solid #000 !important; }
+.mergely.current.start { border-top: 1px solid #ffffff80 !important; }
+.mergely.current.end { border-bottom: 1px solid #ffffff80 !important; }
 .mergely.current.lhs.a.start.end,
 .mergely.current.rhs.d.start.end { border-top-width: 0 !important; }
 

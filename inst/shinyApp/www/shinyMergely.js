@@ -1,4 +1,30 @@
+var o = {
+    //width: "auto",
+    height: "60vh",
+    //editor_width: "calc(100%)",
+//    editor_height: "60vh",
+    viewport: false,
+    sidebar: false,
+    autoresize: true,
+//    lhs: function(setValue){setValue("a\na\na\na\na\na\na\na\na\na\n");},
+//    rhs: function(setValue){setValue("a\na\nb\na\nb\na\na\na\na\na\n");},
+    wrap_lines: true,
+    cmsettings: {
+      readOnly: false,
+      lineWrapping: true,
+      theme: "cobalt",
+      mode: "text/plain"
+    },
+    license: null
+  };
 function mergely(texts) {
+  $("#mergely").remove();
+  $("#x").append($("<div id='mergely'></div>"));
+  $("#mergely").mergely(o);
+/*  $('#mergely').mergely('clear', 'lhs');
+  $('#mergely').mergely('clear', 'rhs');
+  $('#mergely').mergelyUnregister();
+  $('#mergely').mergely("update"); */
   $("#mergely").mergely("lhs", texts.lhs);
   $("#mergely").mergely("rhs", texts.rhs);
 }
@@ -26,9 +52,16 @@ $(document).ready(function() {
   $("#copyRight").on("click", function() {
     navigator.clipboard.writeText($("#mergely").mergely("get", "rhs"));
   });
-  $("#mergely").mergely({
+/*  $("#mergely").mergely({
     width: "auto",
-    height: "400px",
+    height: "60vh",
+//    editor_width: "auto",
+//    editor_height: "60vh",
+    viewport: false,
+    sidebar: false,
+    autoresize: true,
+//    lhs: function(setValue){setValue("a\na\na\na\na\na\na\na\na\na\n");},
+//    rhs: function(setValue){setValue("a\na\nb\na\nb\na\na\na\na\na\n");},
     wrap_lines: true,
     cmsettings: {
       readOnly: false,
@@ -36,7 +69,25 @@ $(document).ready(function() {
       theme: "cobalt",
       mode: "text/plain"
     },
-  });
+  });*/
+
+/*setTimeout(function(){
+var watchResize = new WatchElementResize(document.querySelectorAll(".CodeMirror")[0]);
+watchResize.on('resize', function(evt){
+  console.info(evt);
+
+  // the DOM element
+  var resized_element = evt.element.target;
+
+  // the element offset (width, height, top, left)
+  var offset = evt.element.offset;
+
+  // the window dimensions -- just in case you need
+  var window_size = evt.window;
+});
+},500);*/
+
+
   document.getElementById("files").addEventListener("change", function() {
     if(document.getElementById("files").files.length === 2) {
       $(".mainPanel").animate({opacity: 1}, 1500);
