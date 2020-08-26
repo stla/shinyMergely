@@ -26,7 +26,8 @@ fluidPage(
     tags$script(type="text/javascript", src="mergely/package/lib/mergely.js"),
     tags$link(rel="stylesheet", media="all", href="mergely/package/lib/mergely.css"),
     tags$link(rel="stylesheet", href="shinyMergely.css"),
-    tags$script(src = "shinyMergely.js")
+    tags$script(src = "shinyMergely.js"),
+    tags$link(rel="stylesheet", href="shootingStars.css")
     #tags$script(src = "https://cdn.jsdelivr.net/watch-element-resize.js/latest/watch-element-resize.min.js")
   ),
   br(),
@@ -74,5 +75,30 @@ fluidPage(
       )
       #)
     )
-  )
+  ),
+
+  HTML(
+'
+<div class="night">
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+  <div class="shooting_star"></div>
+</div>')
 )
