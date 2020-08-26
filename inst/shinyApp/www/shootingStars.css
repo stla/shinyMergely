@@ -2,6 +2,13 @@ body {
   overflow: hidden;
 }
 
+.sky {
+  height: 100vh;
+  background-image: url(mergely/mergely.png);
+  background-repeat: no-repeat;
+  background-position-x: center;
+}
+
 .night {
   margin-top: 10%;
   position: relative;

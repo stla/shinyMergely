@@ -90,7 +90,7 @@ watchResize.on('resize', function(evt){
 
   document.getElementById("files").addEventListener("change", function() {
     if(document.getElementById("files").files.length === 2) {
-      $(".night").hide();
+      $(".sky").hide();
       $(".mainPanel").animate({opacity: 1}, 1500);
       $("body").css("overflow", "auto");
       return true;

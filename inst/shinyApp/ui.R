@@ -77,7 +77,7 @@ fluidPage(
     )
   ),
 
-  HTML(
+  tags$div(class="sky", HTML(
 '
 <div class="night">
   <div class="shooting_star"></div>
@@ -100,5 +100,5 @@ fluidPage(
   <div class="shooting_star"></div>
   <div class="shooting_star"></div>
   <div class="shooting_star"></div>
-</div>')
+</div>'))
 )
