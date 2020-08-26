@@ -7,10 +7,12 @@ body {
   background-image: url(mergely/mergely.png);
   background-repeat: no-repeat;
   background-position-x: center;
+  background-position-y: 40%;
 }
 
 .night {
-  margin-top: 10%;
+  opacity: 0;
+  margin-top: -10%;
   position: relative;
   width: 100%;
   height: 100%;

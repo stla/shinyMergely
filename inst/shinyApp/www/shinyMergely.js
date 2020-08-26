@@ -45,7 +45,12 @@ $(document).on("shiny:connected", function() {
     $("#mergely").mergely("swap");
   });
 });
+
 $(document).ready(function() {
+  $(".sky").effect("bounce", {duration: 1500, distance: 50});
+  setTimeout(function() {
+    $(".night").animate({opacity: 1}, 1500);
+  },1500);
   $("#copyLeft").on("click", function() {
     navigator.clipboard.writeText($("#mergely").mergely("get", "lhs"));
   });
