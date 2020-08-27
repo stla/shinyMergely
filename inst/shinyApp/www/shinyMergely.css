@@ -281,3 +281,14 @@
 .selectize-dropdown-content>.option.active:not(:hover) {
   background-color: rgba(250,128,114,0.5);
 }
+
+#close {
+  float: right;
+  font-family: Helvetica, sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  color: whitesmoke;
+  background-color: slategray;
+  border-color: slategray;
+  padding: 3px 6px;
+}

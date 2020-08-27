@@ -70,7 +70,7 @@ fluidPage(
     ),
     fluidRow(
       column(
-        width = 12,
+        width = 10,
         tags$div(
           class = "mainPanel",
           selectizeInput(
@@ -83,6 +83,10 @@ fluidPage(
             )
           )
         )
+      ),
+      column(
+        width = 2,
+        actionButton("close", "Close this panel", class = "btn-sm mainPanel")
       )
     )
   ),

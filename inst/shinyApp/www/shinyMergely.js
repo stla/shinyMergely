@@ -62,6 +62,9 @@ $(document).ready(function() {
   setTimeout(function() {
     $(".night").animate({opacity: 1}, 1500);
   }, 1500); */
+  $("#close").on("click", function() {
+    $(".well").hide("fold", {duration: 2000});
+  });
   $("#copyLeft").on("click", function() {
     navigator.clipboard.writeText($("#mergely").mergely("get", "lhs"));
   });
