@@ -1,4 +1,5 @@
 var selectize;
+
 function onInitialize() {
   $(".well").show();
   $(".sky")
@@ -11,6 +12,7 @@ function onInitialize() {
   }, 1500); */
   selectize = this;
 }
+
 var o = {
     //width: "auto",
     height: "60vh",
@@ -30,6 +32,7 @@ var o = {
     },
     license: null
   };
+
 function mergely(texts) {
   $("#mergely").remove();
   $("#x").append($("<div id='mergely'></div>"));
@@ -40,16 +43,23 @@ function mergely(texts) {
   $('#mergely').mergely("update"); */
   $("#mergely").mergely("lhs", texts.lhs);
   $("#mergely").mergely("rhs", texts.rhs);
+  setTimeout(function() {
+    $("#mergely").mergely("scrollTo", "lhs", 1);
+    $("#mergely").mergely("scrollTo", "rhs", 1);
+  }, 500);
 }
+
 function setMode(mode) {
   $("#mergely").mergely("cm", "lhs").setOption("mode", mode);
   $("#mergely").mergely("cm", "rhs").setOption("mode", mode);
 }
+
 function setFileNames(names) {
   $("#copyLeft,#copyRight").show();
   $("#fileLeft").text(names.left);
   $("#fileRight").text(names.right);
 }
+
 $(document).on("shiny:connected", function() {
   Shiny.addCustomMessageHandler("mergely", mergely);
   Shiny.addCustomMessageHandler("setMode", setMode);
@@ -66,7 +76,9 @@ $(document).ready(function() {
     });
   });
   $("#x").on("resizestop", function(event, ui) {
-    $("#mergely").mergely("resize");
+    setTimeout(function() {
+      $("#mergely").mergely("resize");
+    }, 500);
   });
   $("#close").on("click", function() {
     $(".well").hide("fold", {duration: 2000}, function() {
