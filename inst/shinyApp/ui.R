@@ -75,8 +75,14 @@ fluidPage(
         column(
           width = 2,
           id = "diffButtons",
-          actionButton("prevDiff", NULL, icon = icon("triangle-left", lib = "glyphicon")),
-          actionButton("nextDiff", NULL, icon = icon("triangle-right", lib = "glyphicon"))
+          actionButton(
+            "prevDiff", NULL,
+            icon = icon("triangle-top", lib = "glyphicon")
+          ),
+          actionButton(
+            "nextDiff", NULL,
+            icon = icon("triangle-bottom", lib = "glyphicon")
+          )
         ),
         column(
           width = 5,

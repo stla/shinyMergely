@@ -57,6 +57,12 @@ $(document).ready(function() {
   $("#copyRight").on("click", function() {
     navigator.clipboard.writeText($("#mergely").mergely("get", "rhs"));
   });
+  $("#prevDiff").on("click", function() {
+    $("#mergely").mergely("scrollToDiff", "prev");
+  });
+  $("#nextDiff").on("click", function() {
+    $("#mergely").mergely("scrollToDiff", "next");
+  });
 /*  $("#mergely").mergely({
     width: "auto",
     height: "60vh",
