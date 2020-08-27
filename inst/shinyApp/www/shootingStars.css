@@ -3,11 +3,12 @@ body {
 }
 
 .sky {
+  visibility: hidden;
   height: 100vh;
   background-image: url(mergely/mergely.png);
   background-repeat: no-repeat;
   background-position-x: center;
-  background-position-y: 40%;
+  background-position-y: 25%;
 }
 
 .night {

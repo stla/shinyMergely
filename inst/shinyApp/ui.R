@@ -1,5 +1,23 @@
 library(shinyjqui)
-#shinyOptions(shiny.jquery.version = 1)
+
+languages <- list(
+  CSS = "css",
+  Haskell = "haskell",
+  HTML = "htmlmixed",
+  Julia = "julia",
+  JavaScript = "javascript",
+  JSX = "jsx",
+  LaTeX = "stex",
+  Markdown = "markdown",
+  Python = "python",
+  R = "r",
+  Rmarkdown = "markdown",
+  SAS = "sas",
+  SQL = "sql",
+  SVG = "xml",
+  Text = "text/plain",
+  XML = "xml"
+)
 
 fluidPage(
   theme = shinytheme("cyborg"),
@@ -23,6 +41,7 @@ fluidPage(
     tags$script(src = "codemirror/mode/markdown/markdown.js"),
     tags$script(src = "codemirror/mode/python/python.js"),
     tags$script(src = "codemirror/mode/r/r.js"),
+    tags$script(src = "codemirror/mode/sas/sas.js"),
     tags$script(src = "codemirror/mode/sql/sql.js"),
     tags$script(src = "codemirror/mode/stex/stex.js"),
     tags$script(src = "codemirror/mode/xml/xml.js"),
@@ -35,6 +54,7 @@ fluidPage(
   ),
   br(),
   wellPanel(
+    style = "display: none;",
     fluidRow(
       column(
         width = 10,
@@ -49,6 +69,23 @@ fluidPage(
         actionButton("swap", "Swap", class = "btn-lg mainPanel",
                      icon = icon("transfer", lib = "glyphicon"))
         #)
+      )
+    ),
+    fluidRow(
+      column(
+        width = 12,
+        tags$div(
+          class = "mainPanel",
+          selectizeInput(
+            "language",
+            NULL,
+            languages,
+            options = list(
+                placeholder = "Select language...",
+                onInitialize = I("onInitialize")
+            )
+          )
+        )
       )
     )
   ),

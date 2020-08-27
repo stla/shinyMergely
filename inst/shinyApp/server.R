@@ -36,15 +36,24 @@ function(input, output, session){
         py = "python",
         r = "r",
         rmd = "markdown",
+        sas = "sas",
         sql = "sql",
         svg = "xml",
         tex = "stex",
         xml = "xml"
       )
       if(is.null(mode)) mode <- "text/plain"
-      session$sendCustomMessage("setMode", mode)
+      #session$sendCustomMessage("setMode", mode)
+      updateSelectizeInput(session, "language", selected = mode)
     }
   })
+
+  observeEvent(input[["language"]], {
+    print(input[["language"]])
+    if(input[["language"]] != ""){
+      session$sendCustomMessage("setMode", input[["language"]])
+    }
+  }, ignoreInit = TRUE)
 
   observeEvent(input[["swap"]], {
     session$sendCustomMessage("swap", "x")

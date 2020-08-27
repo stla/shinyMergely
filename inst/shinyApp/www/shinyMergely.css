@@ -138,6 +138,7 @@
 }
 
 #swap {
+  float: right;
   border-color: #666;
   color: papayawhip;
   padding: 8px 16px;
@@ -200,16 +201,19 @@
   margin-top: 0;
 }
 
+.selectize-dropdown-content::-webkit-scrollbar-track,
 .CodeMirror-vscrollbar::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
   border-radius: 10px;
   background-color: #F5F5F5;
 }
+.selectize-dropdown-content::-webkit-scrollbar,
 .CodeMirror-vscrollbar::-webkit-scrollbar {
   width: 8px;
   height: 8px;
   background-color: transparent;
 }
+.selectize-dropdown-content::-webkit-scrollbar-thumb,
 .CodeMirror-vscrollbar::-webkit-scrollbar-thumb {
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
@@ -218,9 +222,62 @@
 .CodeMirror-vscrollbar:focus {
   outline: 0;
 }
+
 .mergely.c.lhs, .mergely.c.rhs {
   background-color: darkmagenta;
+  background-color: rgba(139,0,139,0.5);
 }
 .mergely.ch.a.lhs, .mergely.ch.a.rhs {
   background-color: royalblue;
+  background-color: rgba(65,105,225,0.5);
+}
+
+.form-control.selectize-control {
+  width: calc(99% + 7px);
+}
+.selectize-input,
+.selectize-dropdown-content {
+  color: whitesmoke;
+/*  background-color: #464545 !important; */
+}
+.selectize-input {
+  min-height: 10px;
+  padding: 2px 12px;
+  background-image: linear-gradient(90deg, #464545 50%, slategray 100%);
+}
+.selectize-input:hover {
+  -webkit-box-shadow: inset 0 0 0 0 black, 0 0 35px 5px mediumturquoise;
+  -moz-box-shadow: inset 0 0 0 0 black, 0 0 35px 5px mediumturquoise;
+  box-shadow: inset 0 0 0 0 black, 0 0 35px 5px mediumturquoise;
+  border-color: palevioletred;
+  border-color: rgba(219,112,147,0.5);
+}
+.selectize-input.input-active>input {
+  color: orangered;
+}
+.selectize-control.single .selectize-input:after {
+  border-top-color: whitesmoke;
+  border-width: 5px 5px 5px 5px;
+  border-right-color: transparent;
+}
+.selectize-control.single .selectize-input.dropdown-active:after {
+  border-bottom-color: whitesmoke;
+}
+.selectize-input>input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: antiquewhite !important;
+  opacity: 0.5;
+}
+.selectize-input>input::-moz-placeholder { /* Firefox 19+ */
+  color: antiquewhite !important;
+  opacity: 0.5;
+}
+.selectize-input>input::-ms-input-placeholder { /* IE 10+ */
+  color: antiquewhite !important;
+  opacity: 0.5;
+}
+.selectize-dropdown-content>.option:hover {
+  background-color: rgba(176,224,230,0.7);
+}
+.selectize-dropdown-content>.option.active:not(:hover) {
+  background-color: rgba(250,128,114,0.5);
 }

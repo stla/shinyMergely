@@ -1,3 +1,14 @@
+var selectize;
+function onInitialize() {
+  $('.well').show();
+  $('.sky')
+    .css('visibility', 'visible')
+    .effect("bounce", {duration: 1500, distance: 50});
+  setTimeout(function() {
+    $(".night").animate({opacity: 1}, 1500);
+  }, 1500);
+  selectize = this;
+}
 var o = {
     //width: "auto",
     height: "60vh",
@@ -47,10 +58,10 @@ $(document).on("shiny:connected", function() {
 });
 
 $(document).ready(function() {
-  $(".sky").effect("bounce", {duration: 1500, distance: 50});
+/*  $(".sky").effect("bounce", {duration: 1500, distance: 50});
   setTimeout(function() {
     $(".night").animate({opacity: 1}, 1500);
-  }, 1500);
+  }, 1500); */
   $("#copyLeft").on("click", function() {
     navigator.clipboard.writeText($("#mergely").mergely("get", "lhs"));
   });
