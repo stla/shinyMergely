@@ -57,13 +57,29 @@ fluidPage(
         column(
           width = 6,
           #style = "margin-left: -2px;",
-          tags$p(id = "fileLeft"),
-          actionButton("copyLeft", "Copy")
+          tags$p(id = "fileLeft")
+          #actionButton("copyLeft", "Copy")
         ),
         column(
           width = 6,
-#          style = "margin-left: -13px;",
-          tags$p(id = "fileRight"),
+          #          style = "margin-left: -13px;",
+          tags$p(id = "fileRight")
+          #actionButton("copyRight", "Copy")
+        )
+      ),
+      fluidRow(
+        column(
+          width = 5,
+          actionButton("copyLeft", "Copy")
+        ),
+        column(
+          width = 2,
+          id = "diffButtons",
+          actionButton("prevDiff", NULL, icon = icon("triangle-left", lib = "glyphicon")),
+          actionButton("nextDiff", NULL, icon = icon("triangle-right", lib = "glyphicon"))
+        ),
+        column(
+          width = 5,
           actionButton("copyRight", "Copy")
         )
       ),
@@ -78,7 +94,7 @@ fluidPage(
   ),
 
   tags$div(class="sky", HTML(
-'
+    '
 <div class="night">
   <div class="shooting_star"></div>
   <div class="shooting_star"></div>
