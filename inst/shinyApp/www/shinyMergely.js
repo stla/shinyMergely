@@ -1,12 +1,14 @@
 var selectize;
 function onInitialize() {
-  $('.well').show();
-  $('.sky')
-    .css('visibility', 'visible')
-    .effect("bounce", {duration: 1500, distance: 50});
-  setTimeout(function() {
+  $(".well").show();
+  $(".sky")
+    .css("visibility", "visible")
+    .effect("bounce", {duration: 1500, distance: 50}, function() {
+      $(".night").animate({opacity: 1}, 1500);
+    });
+/*  setTimeout(function() {
     $(".night").animate({opacity: 1}, 1500);
-  }, 1500);
+  }, 1500); */
   selectize = this;
 }
 var o = {
@@ -58,12 +60,18 @@ $(document).on("shiny:connected", function() {
 });
 
 $(document).ready(function() {
-/*  $(".sky").effect("bounce", {duration: 1500, distance: 50});
-  setTimeout(function() {
-    $(".night").animate({opacity: 1}, 1500);
-  }, 1500); */
+  $(window).resize(function() {
+    setTimeout(function() {
+      $("#mergely").mergely("resize");
+    });
+  });
+  $("#x").on("resizestop", function(event, ui) {
+    $("#mergely").mergely("resize");
+  });
   $("#close").on("click", function() {
-    $(".well").hide("fold", {duration: 2000});
+    $(".well").hide("fold", {duration: 2000}, function() {
+      $("#mergely").mergely("resize");
+    });
   });
   $("#copyLeft").on("click", function() {
     navigator.clipboard.writeText($("#mergely").mergely("get", "lhs"));

@@ -127,8 +127,14 @@ fluidPage(
         )
       ),
       jqui_resizable(
-        tags$div(id="x",tags$div(id = "mergely")),
-        options = list(alsoResize = ".CodeMirror", handles = "s")
+        tags$div(
+          id = "x",
+          tags$div(id = "mergely")
+        ),
+        options = list(
+          alsoResize = ".CodeMirror",
+          handles = "s"
+        )
       )
     )
   ),
