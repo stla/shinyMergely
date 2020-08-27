@@ -23,14 +23,14 @@ fluidPage(
   theme = shinytheme("cyborg"),
   tags$head(
     tags$script(src = "bootstrap-flash-alert.js"),
-    tags$link(rel="stylesheet", href = "animate.css"),
+    tags$link(rel = "stylesheet", href = "animate.css"),
     tags$script(src = "codemirror/lib/codemirror.js"),
-    tags$link(rel="stylesheet", media = "all", href = "codemirror/lib/codemirror.css"),
+    tags$link(rel = "stylesheet", media = "all", href = "codemirror/lib/codemirror.css"),
     tags$script(src = "codemirror/addon/dialog/dialog.js"),
     tags$link(rel = "stylesheet", href = "codemirror/addon/dialog/dialog.css"),
     tags$script(src = "codemirror/addon/search/searchcursor.js"),
     tags$script(src = "codemirror/addon/search/search.js"),
-    tags$link(rel="stylesheet", href = "codemirror/theme/cobalt.css"),
+    tags$link(rel = "stylesheet", href = "codemirror/theme/cobalt.css"),
     tags$script(src = "codemirror/mode/meta.js"),
     tags$script(src = "codemirror/mode/css/css.js"),
     tags$script(src = "codemirror/mode/haskell/haskell.js"),
@@ -46,10 +46,10 @@ fluidPage(
     tags$script(src = "codemirror/mode/stex/stex.js"),
     tags$script(src = "codemirror/mode/xml/xml.js"),
     tags$script(src = "mergely/package/lib/mergely.js"),
-    tags$link(rel="stylesheet", media = "all", href = "mergely/package/lib/mergely.css"),
-    tags$link(rel="stylesheet", href = "shinyMergely.css"),
+    tags$link(rel = "stylesheet", media = "all", href = "mergely/package/lib/mergely.css"),
+    tags$link(rel = "stylesheet", href = "shinyMergely.css"),
     tags$script(src = "shinyMergely.js"),
-    tags$link(rel="stylesheet", href = "shootingStars.css")
+    tags$link(rel = "stylesheet", href = "shootingStars.css")
     #tags$script(src = "https://cdn.jsdelivr.net/watch-element-resize.js/latest/watch-element-resize.min.js")
   ),
   br(),
@@ -58,13 +58,14 @@ fluidPage(
     fluidRow(
       column(
         width = 10,
+        id = "fileInput",
         fileInput(
           "files", NULL, multiple = TRUE, buttonLabel = "Select two files..."
         )
       ),
       column(
         width = 2,
-        actionButton("swap", "Swap", class = "btn-lg mainPanel",
+        actionButton("swap", "Swap", class = "btn-lg btn-block mainPanel",
                      icon = icon("transfer", lib = "glyphicon"))
       )
     ),
@@ -86,7 +87,11 @@ fluidPage(
       ),
       column(
         width = 2,
-        actionButton("close", "Close this panel", class = "btn-sm mainPanel")
+        actionButton(
+          "close",
+          "Close this panel",
+          class = "btn-sm btn-block mainPanel"
+        )
       )
     )
   ),

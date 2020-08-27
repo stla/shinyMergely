@@ -166,6 +166,9 @@
   padding-bottom: 0;
 }
 
+#fileInput .form-group.shiny-input-container {
+  width: calc(99% + 7px);
+}
 .form-control[readonly] {
   background-color: rgba(176, 196, 222, 0.5);
   color: powderblue;
