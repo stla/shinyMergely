@@ -104,6 +104,8 @@ watchResize.on('resize', function(evt){
       $(".sky").hide();
       $(".mainPanel").animate({opacity: 1}, 1500);
       $("body").css("overflow", "auto");
+      $("input.form-control").css("border-bottom-right-radius", 0);
+      $(".btn-file").css("border-bottom-left-radius", 0);
       return true;
     } else {
       $.alert("You have to upload <u>two</u> files", {
