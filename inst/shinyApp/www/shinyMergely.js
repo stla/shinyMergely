@@ -13,6 +13,12 @@ function onInitialize() {
   selectize = this;
 }
 
+function start(_) {
+  $(".sky").hide();
+  $(".mainPanel").animate({opacity: 1}, 1500);
+  $("body").css("overflow", "auto");
+}
+
 var o = {
     //width: "auto",
     height: "60vh",
@@ -59,15 +65,6 @@ function setFileNames(names) {
   $("#fileLeft").text(names.left);
   $("#fileRight").text(names.right);
 }
-
-$(document).on("shiny:connected", function() {
-  Shiny.addCustomMessageHandler("mergely", mergely);
-  Shiny.addCustomMessageHandler("setMode", setMode);
-  Shiny.addCustomMessageHandler("fileNames", setFileNames);
-  Shiny.addCustomMessageHandler("swap", function(x) {
-    $("#mergely").mergely("swap");
-  });
-});
 
 $(document).ready(function() {
   $(window).resize(function() {
@@ -135,11 +132,10 @@ watchResize.on('resize', function(evt){
 
   document.getElementById("files").addEventListener("change", function() {
     if(document.getElementById("files").files.length === 2) {
-      $(".sky").hide();
-      $(".mainPanel").animate({opacity: 1}, 1500);
-      $("body").css("overflow", "auto");
-      $("input.form-control").css("border-bottom-right-radius", 0);
-      $(".btn-file").css("border-bottom-left-radius", 0);
+//      start();
+      $("label[for=files]").next().find(".form-control")
+        .css("border-bottom-right-radius", 0);
+      $(this).parent().css("border-bottom-left-radius", 0);
       return true;
     } else {
       $.alert("You have to upload <u>two</u> files", {
@@ -160,3 +156,21 @@ watchResize.on('resize', function(evt){
     }
   });
 });
+
+function changeBorders(id) {
+  $(`label[for=${id}]`).next().find(".form-control")
+    .css("border-bottom-right-radius", 0);
+  $(`#${id}`).parent().css("border-bottom-left-radius", 0);
+}
+
+$(document).on("shiny:connected", function() {
+  Shiny.addCustomMessageHandler("mergely", mergely);
+  Shiny.addCustomMessageHandler("setMode", setMode);
+  Shiny.addCustomMessageHandler("fileNames", setFileNames);
+  Shiny.addCustomMessageHandler("swap", function(x) {
+    $("#mergely").mergely("swap");
+  });
+  Shiny.addCustomMessageHandler("start", start);
+  Shiny.addCustomMessageHandler("changeBorders", changeBorders);
+});
+
