@@ -66,31 +66,46 @@ function setFileNames(names) {
   $("#fileRight").text(names.right);
 }
 
+
 $(document).ready(function() {
+
+  $("[data-toggle=tooltip]").tooltip().on("hidden.bs.tooltip", function() {
+    var $this = $(this);
+    setTimeout(function() {
+      $this.tooltip("destroy");
+    }, 10000);
+  });
+
   $(window).resize(function() {
     setTimeout(function() {
       $("#mergely").mergely("resize");
     });
   });
+
   $("#x").on("resizestop", function(event, ui) {
     setTimeout(function() {
       $("#mergely").mergely("resize");
     }, 500);
   });
+
   $("#close").on("click", function() {
     $(".well").hide("fold", {duration: 2000}, function() {
       $("#mergely").mergely("resize");
     });
   });
+
   $("#copyLeft").on("click", function() {
     navigator.clipboard.writeText($("#mergely").mergely("get", "lhs"));
   });
+
   $("#copyRight").on("click", function() {
     navigator.clipboard.writeText($("#mergely").mergely("get", "rhs"));
   });
+
   $("#prevDiff").on("click", function() {
     $("#mergely").mergely("scrollToDiff", "prev");
   });
+
   $("#nextDiff").on("click", function() {
     $("#mergely").mergely("scrollToDiff", "next");
   });
@@ -132,7 +147,6 @@ watchResize.on('resize', function(evt){
 
   document.getElementById("files").addEventListener("change", function() {
     if(document.getElementById("files").files.length === 2) {
-//      start();
       $("label[for=files]").next().find(".form-control")
         .css("border-bottom-right-radius", 0);
       $(this).parent().css("border-bottom-left-radius", 0);

@@ -59,8 +59,11 @@ fluidPage(
     fluidRow(
       column(
         width = 1,
+        id = "switch-column",
         tags$div(
           id = "switch-container",
+          `data-toggle` = "tooltip",
+          `data-placement` = "bottom",
           title = paste0(
             "Select two files at once (from the same folder) or select two ",
             "files one by one."
@@ -130,7 +133,13 @@ fluidPage(
         actionButton(
           "close",
           "Close this panel",
-          class = "btn-sm btn-block mainPanel"
+          class = "btn-sm btn-block mainPanel",
+          `data-toggle` = "tooltip",
+          `data-placement` = "left",
+          title = paste0(
+            "Close this panel to gain some place. You can vertically resize the ",
+            "editor windows by dragging the bottom border."
+          )
         )
       )
     )
@@ -150,6 +159,7 @@ fluidPage(
         )
       ),
       fluidRow(
+        id = "diffButtons-row",
         column(
           width = 5,
           actionButton("copyLeft", "Copy")
@@ -157,6 +167,11 @@ fluidPage(
         column(
           width = 2,
           id = "diffButtons",
+          `data-toggle` = "tooltip",
+          `data-placement` = "top",
+          title = paste0(
+            "previous difference / next difference "
+          ),
           actionButton(
             "prevDiff", NULL,
             icon = icon("triangle-top", lib = "glyphicon")

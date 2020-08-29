@@ -346,3 +346,32 @@ input:checked + label[for=switch]:after {
   left: 100%;
   transform: translateX(-100%);
 }
+
+.tooltip {
+  pointer-events: none;
+}
+.tooltip > .tooltip-inner {
+  pointer-events: none;
+  background-color: #73AD21;
+  color: #FFFFFF;
+  padding: 5px;
+  font-size: 15px;
+}
+.tooltip.bottom > .tooltip-arrow {
+  border-bottom-color: #73AD21;
+}
+.tooltip.left > .tooltip-arrow {
+  border-left-color: #73AD21;
+}
+.tooltip.top > .tooltip-arrow {
+  border-top-color: #73AD21;
+}
+#switch-column .tooltip > .tooltip-inner {
+  width: 150%;
+  max-width: 150%;
+  margin-left: 10px;
+}
+#diffButtons-row .tooltip > .tooltip-inner {
+  width: fit-content;
+  max-width: 300px;
+}
