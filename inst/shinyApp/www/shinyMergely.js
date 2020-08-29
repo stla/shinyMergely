@@ -40,8 +40,10 @@ var o = {
   };
 
 function mergely(texts) {
+  $(".files").removeClass("underline");
+  $("#fileLeft,#fileRight").hide("fade", {duration: 1000});
   $("#mergely").remove();
-  $("#x").append($("<div id='mergely'></div>"));
+  $("#mergely-container").append($("<div id='mergely'></div>"));
   $("#mergely").mergely(o);
 /*  $('#mergely').mergely('clear', 'lhs');
   $('#mergely').mergely('clear', 'rhs');
@@ -64,6 +66,11 @@ function setFileNames(names) {
   $("#copyLeft,#copyRight").show();
   $("#fileLeft").text(names.left);
   $("#fileRight").text(names.right);
+  $("#fileLeft,#fileRight").show("fade", {duration: 1000}, function() {
+    setTimeout(function() {
+      $(".files").addClass("underline");
+    }, 1000);
+  });
 }
 
 

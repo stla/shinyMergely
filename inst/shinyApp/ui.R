@@ -148,21 +148,28 @@ fluidPage(
     class = "mainPanel",
     column(
       width = 12,
-      fluidRow(
-        column(
-          width = 6,
-          tags$p(id = "fileLeft")
-        ),
-        column(
-          width = 6,
-          tags$p(id = "fileRight")
-        )
-      ),
+      # fluidRow(
+      #   column(
+      #     width = 6,
+      #     class = "files",
+      #     tags$p(id = "fileLeft", "xxxxxxxxxx")
+      #   ),
+      #   column(
+      #     width = 6,
+      #     class = "files",
+      #     tags$p(id = "fileRight")
+      #   )
+      # ),
       fluidRow(
         id = "diffButtons-row",
         column(
-          width = 5,
+          width = 1,
           actionButton("copyLeft", "Copy")
+        ),
+        column(
+          width = 4,
+          class = "files",
+          tags$p(id = "fileLeft")
         ),
         column(
           width = 2,
@@ -182,13 +189,18 @@ fluidPage(
           )
         ),
         column(
-          width = 5,
+          width = 4,
+          class = "files",
+          tags$p(id = "fileRight")
+        ),
+        column(
+          width = 1,
           actionButton("copyRight", "Copy")
         )
       ),
       jqui_resizable(
         tags$div(
-          id = "x",
+          id = "mergely-container",
           tags$div(id = "mergely")
         ),
         options = list(
