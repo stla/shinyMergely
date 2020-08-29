@@ -67,17 +67,23 @@ function(input, output, session){
     file1() && file2()
   })
   started <- reactiveVal(FALSE)
+  changedBorders1 <- reactiveVal(FALSE)
+  changedBorders2 <- reactiveVal(FALSE)
 
   observeEvent(input[["file1"]], {
     req(isFALSE(file1()))
-#    separatedFiles(c(separatedFiles(), input[["file1"]][["name"]]))
-    session$sendCustomMessage("changeBorders", "file1")
-    file1(TRUE) # pb si le user re-upload
+    if(!changedBorders1()){
+      session$sendCustomMessage("changeBorders", "file1")
+      changedBorders1(TRUE)
+    }
+    file1(TRUE)
   })
   observeEvent(input[["file2"]], {
     req(isFALSE(file2()))
-#    separatedFiles(c(separatedFiles(), input[["file2"]][["name"]]))
-    session$sendCustomMessage("changeBorders", "file2")
+    if(!changedBorders2()){
+      session$sendCustomMessage("changeBorders", "file2")
+      changedBorders2(TRUE)
+    }
     file2(TRUE)
   })
 
@@ -104,7 +110,7 @@ function(input, output, session){
     }else{
       session$sendCustomMessage("setMode", mode)
     }
-    file1(FALSE); file2(FALSE)#; separatedFiles(NULL)
+    file1(FALSE); file2(FALSE)
   }, priority = 1)
 
   observeEvent(input[["language"]], {
