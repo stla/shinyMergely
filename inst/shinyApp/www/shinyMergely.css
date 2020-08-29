@@ -166,9 +166,9 @@
   padding-bottom: 0;
 }
 
-#fileInput .form-group.shiny-input-container {
+/*#fileInput .form-group.shiny-input-container {
   width: calc(99% + 7px);
-}
+}*/
 .form-control[readonly] {
   background-color: rgba(176, 196, 222, 0.5);
   color: powderblue;
@@ -190,10 +190,12 @@
   font-style: oblique;
   font-weight: bold;
   font-size: 16px;
-  padding: 6px 12px;
+  padding: 0 12px;
   border-width: 2px;
 }
 .progress {
+  display: inline-table;
+  width: 100%;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
@@ -202,6 +204,9 @@
   background-color: royalblue;
   background-image: linear-gradient(90deg, darkslateblue 0%, royalblue 50%, rgba(0,255,255,0.5));
   margin-top: 0;
+}
+.form-control {
+  height: 26px;
 }
 
 .selectize-dropdown-content::-webkit-scrollbar-track,
@@ -235,9 +240,9 @@
   background-color: rgba(65,105,225,0.5);
 }
 
-.form-control.selectize-control {
+/*.form-control.selectize-control {
   width: calc(99% + 7px);
-}
+}*/
 .selectize-input,
 .selectize-dropdown-content {
   color: whitesmoke;
@@ -253,7 +258,7 @@
   -moz-box-shadow: inset 0 0 0 0 black, 0 0 35px 5px mediumturquoise;
   box-shadow: inset 0 0 0 0 black, 0 0 35px 5px mediumturquoise;
   border-color: palevioletred;
-  border-color: rgba(219,112,147,0.5);
+  /*border-color: rgba(219,112,147,0.5);*/
 }
 .selectize-input.input-active>input {
   color: orangered;
@@ -294,4 +299,50 @@
   background-color: slategray;
   border-color: slategray;
   padding: 3px 6px;
+}
+
+/* switch button */
+#switch {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+#switch-container {
+  display: grid;
+}
+
+label[for=switch] {
+cursor: pointer;
+    text-indent: -9999px;
+    width: 60px;
+    height: 10px;
+    margin: auto;
+    background: crimson;
+    display: block;
+    border-radius: 10px;
+    position: relative;
+    top: 3px;
+}
+
+label[for=switch]:after {
+  content: '';
+  position: absolute;
+  top: -7px;
+  left: 0;
+  width: 40%;
+  padding-top: calc(40% - 8px);
+  background: wheat;
+  border-radius: 50%;
+  transition: 0.3s;
+  border: 4px solid purple;
+}
+
+input:checked + label[for=switch] {
+  background: #bada55;
+}
+
+input:checked + label[for=switch]:after {
+  left: 100%;
+  transform: translateX(-100%);
 }

@@ -57,10 +57,45 @@ fluidPage(
     style = "display: none;",
     fluidRow(
       column(
-        width = 10,
+        width = 1,
+        tags$div(
+          id = "switch-container",
+          tags$input(
+            id = "switch",
+            type = "checkbox"
+          ),
+          tags$label(`for` = "switch")
+        )
+      ),
+      column(
+        width = 9,
         id = "fileInput",
-        fileInput(
-          "files", NULL, multiple = TRUE, buttonLabel = "Select two files..."
+        conditionalPanel(
+          "!input.switch",
+          fileInput(
+            "files", NULL, multiple = TRUE,
+            buttonLabel = "Select two files at once..."
+          )
+        ),
+        conditionalPanel(
+          "input.switch",
+          style = "display: none;",
+          fluidRow(
+            column(
+              width = 6,
+              fileInput(
+                "file1", NULL,
+                buttonLabel = "Select left file..."
+              )
+            ),
+            column(
+              width = 6,
+              fileInput(
+                "file2", NULL,
+                buttonLabel = "Select right file..."
+              )
+            )
+          )
         )
       ),
       column(
@@ -69,6 +104,22 @@ fluidPage(
                      icon = icon("transfer", lib = "glyphicon"))
       )
     ),
+    # fluidRow(
+    #   column(
+    #     width = 5,
+    #     fileInput(
+    #       "file1", NULL,
+    #       buttonLabel = "Select left file..."
+    #     )
+    #   ),
+    #   column(
+    #     width = 5,
+    #     fileInput(
+    #       "file2", NULL,
+    #       buttonLabel = "Select right file..."
+    #     )
+    #   )
+    # ),
     fluidRow(
       column(
         width = 10,
@@ -79,8 +130,8 @@ fluidPage(
             NULL,
             languages,
             options = list(
-                placeholder = "Select language...",
-                onInitialize = I("onInitialize")
+              placeholder = "Select language...",
+              onInitialize = I("onInitialize")
             )
           )
         )
