@@ -34,5 +34,5 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports: shiny
-Suggests: shinyjqui, shinythemes, tools
+Suggests: shinyjqui, shinythemes, tools, uchardet
 RoxygenNote: 7.1.1

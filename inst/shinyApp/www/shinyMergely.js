@@ -184,6 +184,23 @@ function changeBorders(id) {
   $(`#${id}`).parent().css("border-bottom-left-radius", 0);
 }
 
+function flashMessage(opts) {
+  $.alert(opts.message, {
+    title: opts.title || null,
+    type: opts.type || "info",
+    icon: opts.icon || false,
+    withTime: opts.withTime || false,
+    autoClose: opts.autoClose === false ? false : true,
+    closeTime: opts.closeTime || 5000,
+    animation: opts.animation || true,
+    animShow: opts.animShow || "rotateInDownRight",
+    animHide: opts.animHide || "bounceOutLeft",
+    position: opts.position || ["bottom-right", [0, 0.01]],
+    speed: "slow",
+  });
+}
+
+
 $(document).on("shiny:connected", function() {
   Shiny.addCustomMessageHandler("mergely", mergely);
   Shiny.addCustomMessageHandler("setMode", setMode);
@@ -193,5 +210,6 @@ $(document).on("shiny:connected", function() {
   });
   Shiny.addCustomMessageHandler("start", start);
   Shiny.addCustomMessageHandler("changeBorders", changeBorders);
+  Shiny.addCustomMessageHandler("flashMessage", flashMessage);
 });
 

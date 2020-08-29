@@ -1,7 +1,21 @@
-# TODO: use uchardet
+library(uchardet)
+
+flashMessage_invalidFile <- function(fileName){
+  list(
+    message = sprintf("The file '%s' is not of type 'text'.", fileName),
+    title = "Invalid file!",
+    type = "danger",
+    icon = "glyphicon glyphicon-ban-circle",
+    withTime = FALSE,
+    closeTime = 10000,
+    animShow = "flash",
+    animHide = "backOutDown",
+    position = list("center", list(0, 0))
+  )
+}
 
 getMode <- function(ext){
-  mode <- switch(
+  switch(
     tolower(ext),
     css = "css",
     hs = "haskell",
@@ -19,8 +33,6 @@ getMode <- function(ext){
     tex = "stex",
     xml = "xml"
   )
-  if(is.null(mode)) mode <- "text/plain"
-  mode
 }
 
 function(input, output, session){
@@ -41,18 +53,39 @@ function(input, output, session){
   }, priority = 2)
 
   observeEvent(input[["files"]], {
-    req(length(input[["files"]][["datapath"]]) == 2L)
-    lhs <- paste0(readLines(input[["files"]][["datapath"]][1L]), collapse = "\n")
-    rhs <- paste0(readLines(input[["files"]][["datapath"]][2L]), collapse = "\n")
-    session$sendCustomMessage("mergely", list(lhs = lhs, rhs = rhs))
+    req(length(twoFiles <- input[["files"]][["datapath"]]) == 2L)
+
     fileNames <- input[["files"]][["name"]]
+
+    enc <- suppressWarnings(detect_file_enc(twoFiles[1L]))
+    if(is.na(enc)){
+      session$sendCustomMessage(
+        "flashMessage", flashMessage_invalidFile(fileNames[1L])
+      )
+      return(NULL)
+    }
+    enc <- suppressWarnings(detect_file_enc(twoFiles[2L]))
+    if(is.na(enc)){
+      session$sendCustomMessage(
+        "flashMessage", flashMessage_invalidFile(fileNames[2L])
+      )
+      return(NULL)
+    }
+
+    lhs <- paste0(readLines(twoFiles[1L]), collapse = "\n")
+    rhs <- paste0(readLines(twoFiles[2L]), collapse = "\n")
+    session$sendCustomMessage("mergely", list(lhs = lhs, rhs = rhs))
+
     files(fileNames)
     session$sendCustomMessage(
       "fileNames",
       list(left = fileNames[1L], right = fileNames[2L])
     )
-    ext <- tools::file_ext(fileNames[1L])
-    mode <- getMode(ext)
+
+    mode <- getMode(tools::file_ext(fileNames[1L]))
+    if(is.null(mode)) mode <- getMode(tools::file_ext(fileNames[2L]))
+    if(is.null(mode)) mode <- "text/plain"
+
     if(mode != input[["language"]]){
       updateSelectizeInput(session, "language", selected = mode)
     }else{
@@ -60,7 +93,6 @@ function(input, output, session){
     }
   }, priority = 1)
 
-#  separatedFiles <- reactiveValues(file1 = NULL, file2 = NULL)
   file1 <- reactiveVal(FALSE)
   file2 <- reactiveVal(FALSE)
   separatedFiles <- eventReactive(list(file1(),file2()), {
@@ -95,22 +127,48 @@ function(input, output, session){
 
   observeEvent(separatedFiles(), {
     req(separatedFiles())
-    lhs <- paste0(readLines(input[["file1"]][["datapath"]]), collapse = "\n")
-    rhs <- paste0(readLines(input[["file2"]][["datapath"]]), collapse = "\n")
+    twoFiles <-
+      c(input[["file1"]][["datapath"]], input[["file2"]][["datapath"]])
+    fileNames <- c(input[["file1"]][["name"]], input[["file2"]][["name"]])
+
+    enc <- suppressWarnings(detect_file_enc(twoFiles[1L]))
+    if(is.na(enc)){
+      session$sendCustomMessage(
+        "flashMessage", flashMessage_invalidFile(fileNames[1L])
+      )
+      return(NULL)
+    }
+    enc <- suppressWarnings(detect_file_enc(twoFiles[2L]))
+    if(is.na(enc)){
+      session$sendCustomMessage(
+        "flashMessage", flashMessage_invalidFile(fileNames[2L])
+      )
+      return(NULL)
+    }
+
+    lhs <- paste0(readLines(twoFiles[1L]), collapse = "\n")
+    rhs <- paste0(readLines(twoFiles[2L]), collapse = "\n")
     session$sendCustomMessage("mergely", list(lhs = lhs, rhs = rhs))
-    files(c(input[["file1"]][["name"]],input[["file2"]][["name"]]))
+
+    files(fileNames)
+
     session$sendCustomMessage(
       "fileNames",
-      list(left = input[["file1"]][["name"]], right = input[["file2"]][["name"]])
+      list(left = fileNames[1L], right = fileNames[2L])
     )
-    ext <- tools::file_ext(input[["file1"]][["name"]])
-    mode <- getMode(ext)
+
+    mode <- getMode(tools::file_ext(fileNames[1L]))
+    if(is.null(mode)) mode <- getMode(tools::file_ext(fileNames[2L]))
+    if(is.null(mode)) mode <- "text/plain"
+
     if(mode != input[["language"]]){
       updateSelectizeInput(session, "language", selected = mode)
     }else{
       session$sendCustomMessage("setMode", mode)
     }
+
     file1(FALSE); file2(FALSE)
+
   }, priority = 1)
 
   observeEvent(input[["language"]], {
