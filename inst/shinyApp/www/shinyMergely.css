@@ -246,7 +246,7 @@
 .selectize-input,
 .selectize-dropdown-content {
   color: whitesmoke;
-/*  background-color: #464545 !important; */
+  background-color: #464545 !important;
 }
 .selectize-input {
   min-height: 10px;
@@ -313,16 +313,16 @@
 }
 
 label[for=switch] {
-cursor: pointer;
-    text-indent: -9999px;
-    width: 60px;
-    height: 10px;
-    margin: auto;
-    background: crimson;
-    display: block;
-    border-radius: 10px;
-    position: relative;
-    top: 3px;
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 60px;
+  height: 10px;
+  margin: auto;
+  background: crimson;
+  display: block;
+  border-radius: 10px;
+  position: relative;
+  top: 3px;
 }
 
 label[for=switch]:after {

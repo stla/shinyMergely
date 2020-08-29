@@ -1,3 +1,4 @@
+library(shinythemes)
 library(shinyjqui)
 
 languages <- list(
@@ -60,6 +61,10 @@ fluidPage(
         width = 1,
         tags$div(
           id = "switch-container",
+          title = paste0(
+            "Select two files at once (from the same folder) or select two ",
+            "files one by one."
+          ),
           tags$input(
             id = "switch",
             type = "checkbox"
@@ -104,22 +109,6 @@ fluidPage(
                      icon = icon("transfer", lib = "glyphicon"))
       )
     ),
-    # fluidRow(
-    #   column(
-    #     width = 5,
-    #     fileInput(
-    #       "file1", NULL,
-    #       buttonLabel = "Select left file..."
-    #     )
-    #   ),
-    #   column(
-    #     width = 5,
-    #     fileInput(
-    #       "file2", NULL,
-    #       buttonLabel = "Select right file..."
-    #     )
-    #   )
-    # ),
     fluidRow(
       column(
         width = 10,
