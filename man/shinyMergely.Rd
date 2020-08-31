@@ -7,5 +7,5 @@
 shinyMergely()
 }
 \description{
-Launch a Shiny app for comparing and merging two files.
+Launch a Shiny app allowing to compare and merge two files.
 }

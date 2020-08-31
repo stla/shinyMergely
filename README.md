@@ -1,4 +1,4 @@
-# shinyMergely
+# __shinyMergely__
 
 A Shiny app for comparing and merging two files.
 

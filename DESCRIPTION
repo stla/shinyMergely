@@ -28,8 +28,7 @@ Authors@R: c(
            role = c("ctb", "cph"),
            comment = "SuperTinyIcons")
     )
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: A 'Shiny' app allowing to compare and merge two files, with syntax highlighting for several coding languages.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
