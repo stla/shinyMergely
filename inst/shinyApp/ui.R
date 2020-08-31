@@ -51,7 +51,6 @@ fluidPage(
     tags$link(rel = "stylesheet", href = "shinyMergely.css"),
     tags$script(src = "shinyMergely.js"),
     tags$link(rel = "stylesheet", href = "shootingStars.css")
-    #tags$script(src = "https://cdn.jsdelivr.net/watch-element-resize.js/latest/watch-element-resize.min.js")
   ),
   br(),
   wellPanel(
@@ -148,18 +147,6 @@ fluidPage(
     class = "mainPanel",
     column(
       width = 12,
-      # fluidRow(
-      #   column(
-      #     width = 6,
-      #     class = "files",
-      #     tags$p(id = "fileLeft", "xxxxxxxxxx")
-      #   ),
-      #   column(
-      #     width = 6,
-      #     class = "files",
-      #     tags$p(id = "fileRight")
-      #   )
-      # ),
       fluidRow(
         id = "diffButtons-row",
         column(

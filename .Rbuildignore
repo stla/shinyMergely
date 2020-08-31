@@ -1,4 +1,5 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^inst/testFiles$
+^inst/screenshots$
 ^LICENSE\.note\.md$

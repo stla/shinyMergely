@@ -1,5 +1,5 @@
 #' Shiny Mergely
-#' @description Launch a Shiny app for comparing and merging two files.
+#' @description Launch a Shiny app allowing to compare and merge two files.
 #'
 #' @importFrom shiny shinyAppDir
 #' @export

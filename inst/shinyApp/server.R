@@ -37,17 +37,10 @@ getMode <- function(ext){
 
 function(input, output, session){
 
-  # uploaded <- reactiveVal(FALSE)
   files <- reactiveVal()
-
-  # output[["uploaded"]] <- reactive({
-  #   uploaded()
-  # })
-  # outputOptions(output, "uploaded", suspendWhenHidden = FALSE)
 
   observeEvent(input[["files"]], {
     req(length(input[["files"]][["datapath"]]) == 2L)
-    # uploaded(TRUE)
     session$sendCustomMessage("start", "x")
     started(TRUE)
   }, priority = 2)
