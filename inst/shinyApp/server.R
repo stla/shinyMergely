@@ -165,7 +165,6 @@ function(input, output, session){
   }, priority = 1)
 
   observeEvent(input[["language"]], {
-    print(input[["language"]])
     if(input[["language"]] != ""){
       session$sendCustomMessage("setMode", input[["language"]])
     }

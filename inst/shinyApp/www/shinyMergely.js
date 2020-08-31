@@ -122,7 +122,7 @@ $(document).ready(function() {
         animShow: "flash",
         animHide: "backOutDown",
         position: ["center", [0, 0]],
-        speed: "slow",
+        speed: "slow"
       });
       this.value = "";
       return false;
@@ -148,7 +148,7 @@ function flashMessage(opts) {
     animShow: opts.animShow || "rotateInDownRight",
     animHide: opts.animHide || "bounceOutLeft",
     position: opts.position || ["bottom-right", [0, 0.01]],
-    speed: "slow",
+    speed: "slow"
   });
 }
 

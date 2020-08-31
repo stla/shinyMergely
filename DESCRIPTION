@@ -1,6 +1,6 @@
 Package: shinyMergely
 Type: Package
-Title: Compare and Merge Two Files with a 'Shiny' app
+Title: Compare and Merge Two Files with a 'Shiny' App
 Version: 0.1.0
 Authors@R: c(
     person(given = "Stéphane",
