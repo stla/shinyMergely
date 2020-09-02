@@ -44,11 +44,11 @@
   border: 1px solid #a3d1ff;
 }
 
-.mergely.a,
+/*.mergely.a,
 .mergely.d,
 .mergely.c {
   color: #000;
-}
+}*/
 
 .mergely.a.rhs.start {
   border-top: 1px solid #a3d1ff;
@@ -58,7 +58,7 @@
   border-bottom: 1px solid #a3d1ff;
 }
 .mergely.a.rhs {
-  background-color: #ddeeff;
+  background-color: navy;
 }
 .mergely.a.lhs.start.end.first {
   border-bottom-width: 0;
@@ -66,7 +66,7 @@
 }
 
 .mergely.d.lhs {
-  background-color: #ffe9e9;
+  background-color: gold;
 }
 .mergely.d.lhs.end,
 .mergely.d.rhs.start.end {
@@ -97,7 +97,7 @@
   background-color: #ddeeff;
 }
 .mergely.ch.d.lhs {
-  background-color: #ffe9e9;
+  background-color: gold;
   text-decoration: line-through;
   color: red !important;
 }
