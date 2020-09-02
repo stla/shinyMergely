@@ -22,11 +22,7 @@ Authors@R: c(
     person(given = "Daniel",
            family = "Eden",
            role = c("ctb", "cph"),
-           comment = "animate.css"),
-    person(given = "Terence",
-           family = "Eden",
-           role = c("ctb", "cph"),
-           comment = "SuperTinyIcons")
+           comment = "animate.css")
     )
 Description: A 'Shiny' app allowing to compare and merge two files, with syntax highlighting for several coding languages.
 License: GPL-3

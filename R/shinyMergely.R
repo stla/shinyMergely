@@ -3,6 +3,9 @@
 #'
 #' @importFrom shiny shinyAppDir
 #' @export
+#' @examples if(interactive()){
+#'   shinyMergely()
+#' }
 shinyMergely <- function(){
   shinyAppDir(system.file("shinyApp", package = "shinyMergely"))
 }

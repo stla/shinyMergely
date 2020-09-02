@@ -9,3 +9,8 @@ shinyMergely()
 \description{
 Launch a Shiny app allowing to compare and merge two files.
 }
+\examples{
+if(interactive()){
+  shinyMergely()
+}
+}
