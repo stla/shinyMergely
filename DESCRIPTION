@@ -25,6 +25,8 @@ Authors@R: c(
            comment = "animate.css")
     )
 Description: A 'Shiny' app allowing to compare and merge two files, with syntax highlighting for several coding languages.
+URL: https://github.com/stla/shinyMergely
+BugReports: https://github.com/stla/shinyMergely/issues
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
