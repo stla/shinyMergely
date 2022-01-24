@@ -1,10 +1,9 @@
 ## Test environments
 
-* ubuntu 18.04, R 3.6.3
+* Windows 10, R-4.1.2
 * win-builder (devel & release)
+* mac-builder
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
-
-* This is a new release.
+OK

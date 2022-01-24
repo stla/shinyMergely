@@ -44,11 +44,11 @@
   border: 1px solid #a3d1ff;
 }
 
-/*.mergely.a,
+.mergely.a,
 .mergely.d,
 .mergely.c {
   color: #000;
-}*/
+}
 
 .mergely.a.rhs.start {
   border-top: 1px solid #a3d1ff;
@@ -58,7 +58,7 @@
   border-bottom: 1px solid #a3d1ff;
 }
 .mergely.a.rhs {
-  background-color: navy;
+  background-color: #ddeeff;
 }
 .mergely.a.lhs.start.end.first {
   border-bottom-width: 0;
@@ -66,7 +66,7 @@
 }
 
 .mergely.d.lhs {
-  background-color: gold;
+  background-color: #ffe9e9;
 }
 .mergely.d.lhs.end,
 .mergely.d.rhs.start.end {
@@ -97,7 +97,7 @@
   background-color: #ddeeff;
 }
 .mergely.ch.d.lhs {
-  background-color: gold;
+  background-color: #ffe9e9;
   text-decoration: line-through;
   color: red !important;
 }
@@ -127,7 +127,9 @@
 .CodeMirror-linenumber {
   cursor: pointer;
 }
-/* .CodeMirror-code { color: #717171; } */
+.CodeMirror-code {
+  color: #717171;
+}
 span.CodeMirror-selectedtext {
   background: none !important;
 }

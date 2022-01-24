@@ -1,7 +1,7 @@
 Package: shinyMergely
 Type: Package
 Title: Compare and Merge Two Files with a 'Shiny' App
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: c(
     person(given = "Stéphane",
            family = "Laurent",
@@ -29,7 +29,6 @@ URL: https://github.com/stla/shinyMergely
 BugReports: https://github.com/stla/shinyMergely/issues
 License: GPL-3
 Encoding: UTF-8
-LazyData: true
 Imports: shiny
 Suggests: shinyjqui, shinythemes, tools, uchardet
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2

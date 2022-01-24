@@ -25,7 +25,7 @@ fluidPage(
   tags$head(
     tags$script(src = "bootstrap-flash-alert.js"),
     tags$link(rel = "stylesheet", href = "animate.css"),
-    tags$script(src = "codemirror/lib/codemirror.js"),
+    tags$script(src = "codemirror/lib/codemirror.min.js"),
     tags$link(rel = "stylesheet", media = "all", href = "codemirror/lib/codemirror.css"),
     tags$script(src = "codemirror/addon/dialog/dialog.js"),
     tags$link(rel = "stylesheet", href = "codemirror/addon/dialog/dialog.css"),
